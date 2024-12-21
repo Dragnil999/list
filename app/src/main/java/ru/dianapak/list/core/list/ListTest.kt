@@ -10,7 +10,7 @@ fun main() {
     val list = getFromFile()
     var count = 5000
 
-    repeat(19) {
+    for (i in 1..19) {
         val testingList = getTestingList(list, count)
 
         val runtime = Runtime.getRuntime()
@@ -18,9 +18,9 @@ fun main() {
         val result = measureNanoTime {
             testingList.quickSort()
         }
-//        println(result)
+        println("Nanoseconds = " + result)
         val memAfterSort = (runtime.totalMemory() - runtime.freeMemory())
-        println(memAfterSort - memBeforeSort)
+        println("Bytes = " + (memAfterSort - memBeforeSort))
 
         count += 5000
     }
